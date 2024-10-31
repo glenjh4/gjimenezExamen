@@ -3,10 +3,109 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="gjimenezExamen.Views.Registro"
              Title="Registro">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+	<VerticalStackLayout
+        Padding="25"
+        Spacing="25">
+
+		<Label Text="REGISTRO"
+               FontSize="22"
+               TextColor="Blue"
+               HorizontalOptions="Center" />
+
+		<Label x:Name="lblUsuarioConectado"
+               Text="Usuario Conectado: "
+               FontSize="16"
+               TextColor="Red"
+               HorizontalOptions="Center" />
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+
+			<Label x:Name="lblNombre"
+				   Text="Nombre"
+				   Grid.Row="0"
+				   Grid.Column="0" Margin="0,2"/>
+
+			<Label x:Name="lblApellido"
+				   Text="Apellido" 
+				   Grid.Row="0" 
+				   Grid.Column="1" Margin="0,2"/>
+			
+			<Label Text="Voltiamperios VA" 
+				   Grid.Row="0" 
+				   Grid.Column="3" Margin="0,2"/>
+			
+			<Entry x:Name="txtNombre"
+                   Placeholder="Nombre"
+                   Grid.Row ="1"
+                   Grid.Column="0"/>
+			
+			<Entry x:Name="txtApellido"
+				   Placeholder="Apellido"
+                   Grid.Row ="1"
+                   Grid.Column="1"/>
+			
+			<Picker x:Name="pickerVA" 
+					Grid.Row="2" 
+					Grid.Column="3" 
+					Margin="0,5">
+				
+				<Picker.ItemsSource>
+					<x:Array Type="{x:Type x:String}">
+						<x:String>500</x:String>
+						<x:String>750</x:String>
+						<x:String>1000</x:String>
+					</x:Array>
+				</Picker.ItemsSource>
+			</Picker>
+		</Grid>
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+				
+			<Label Text="Fecha" Grid.Row="0" Grid.Column="0" Margin="0,5"/>
+			<DatePicker x:Name="datePicker" Grid.Row="0" Grid.Column="1" Margin="0,5"/>
+
+			<Label Text="Monto Inicial" Grid.Row="2" Grid.Column="0" Margin="0,2"/>
+			<Entry x:Name="txtMontoInicial" Placeholder="INGRESE MONTO INICIAL" Grid.Row="2" Grid.Column="1"/>
+			
+			<Button Text="Calcular Pago mensual" Clicked="OnCalcularClicked" Grid.Row="3" Grid.Column="0" BackgroundColor="#5A3FFF" TextColor="White" Margin="0,2"/>
+			<Label x:Name="lblCuotaMensual" Text="------------------" FontSize="16" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" Margin="20.8" />
+			
+			<Label Text="Ciudad" Grid.Row="1" Grid.Column="0" Margin="0,2"/>
+			<Picker x:Name="pickerCiudad" Grid.Row="1" Grid.Column="1" Margin="0,2">
+				<Picker.ItemsSource>
+					<x:Array Type="{x:Type x:String}">
+						<x:String>Cuenca</x:String>
+						<x:String>Loja</x:String>
+						<x:String>Quito</x:String>
+					</x:Array>
+				</Picker.ItemsSource>
+			</Picker>
+		</Grid>
+				
+		<Button Text="Ver resumen" Clicked="OnResumenClicked" BackgroundColor="#5A3FFF" TextColor="White" HorizontalOptions="Center"/>
+
+	</VerticalStackLayout>
 </ContentPage>

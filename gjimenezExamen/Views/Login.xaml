@@ -7,21 +7,31 @@
     <VerticalStackLayout
         Padding="25"
         Spacing="20">
-        <Label Text="Iniciar Sesión"
+
+		<Label x:Name="lblUsuarioConectado"
+               Text="Usuario Conectado: "
+               HorizontalOptions="Center"
+               FontSize="16"
+               TextColor="Blue"/>
+		
+		<Label Text="Iniciar Sesión"
                FontSize="20"
                TextColor="Red"
                HorizontalOptions="Center" />
-        <Image Source="logo.png" HeightRequest="100" Grid.Row="1" 	HorizontalOptions="Center" />
-        <Grid Grid.Row="3" ColumnDefinitions="2">
-            <Entry x:Name="usernameEntry" Placeholder="Usuario"/>
-            <Entry x:Name="passwordEntry" Placeholder="Contraseña" IsPassword="True" />
-            <Button Text="Iniciar sesión" Grid.Row="4" Clicked="OnLoginClicked" />
-            <Button Text="Acerca de" Grid.Row="4" Grid.Column="1" Clicked="OnAboutClicked" />
+		
+        <Image Source="logo.png" HeightRequest="100" HorizontalOptions="Center" />
+		
+		<Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*">
+			<Entry x:Name="txtUsuario" Placeholder="Usuario" Grid.Row="0" Grid.ColumnSpan="2"/>
+			<Entry x:Name="txtContrasena" Placeholder="Contraseña" IsPassword="True" Grid.Row="1" Grid.ColumnSpan="2"/>
+			<Button Text="Iniciar sesión" Grid.Row="2" Grid.Column="0" Clicked="OnIngresarClicked" />
+			<Button Text="Acerca de" Grid.Row="2" Grid.Column="1" Clicked="OnAboutClicked" />
         </Grid>
-        <Label x:Name=""Usuario o contraseña incorrectos." 
-               TextColor="Red" 
-               HorizontalOptions="Center" 
-               Grid.Row="5" 
-               Grid.ColumnSpan="2" />
+		
+        <Label x:Name="errorLabel"
+			   Text="Usuario o contraseña incorrectos"
+               TextColor="Red"
+               IsVisible="False"
+               HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>
